@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimal Google OAuth Test</title>
+</head>
+<body>
+    <h1>Testing Google OAuth</h1>
+    <p>Current URL: http://localhost:5176</p>
+    
+    <!-- Load Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <!-- Google Sign-In Button -->
+    <div id="g_id_onload"
+         data-client_id="617778562937-ls3vtilgnkd1u7r4ttd83gtabn46n8aq.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+    
+    <div id="result" style="margin-top: 20px; padding: 10px; background: #f0f0f0;">
+        Click the Google button above to test...
+    </div>
+    
+    <script>
+        function handleCredentialResponse(response) {
+            document.getElementById('result').innerHTML = 
+                '<span style="color: green; font-weight: bold;">✅ SUCCESS!</span><br>' +
+                'Google OAuth is working correctly.<br>' +
+                'Credential length: ' + response.credential.length + ' characters';
+            console.log('Google OAuth Success:', response);
+        }
+        
+        // Add error handling
+        window.addEventListener('load', function() {
+            console.log('Page loaded, waiting for Google OAuth...');
+        });
+    </script>
+</body>
+</html>

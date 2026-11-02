@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent horizontal scrolling on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+/* Google OAuth Button Styling */
+.google-signin-container {
+  width: 100% !important;
+}
+
+.google-signin-container > div {
+  width: 100% !important;
+}
+
+.google-signin-container iframe {
+  width: 100% !important;
+  border-radius: 0.5rem !important;
+}
+
+/* Google OAuth Button Full Width */
+.google-oauth-wrapper div[role="button"] {
+  width: 100% !important;
+}
+
+.google-oauth-wrapper iframe {
+  width: 100% !important;
+}
+
+.google-oauth-wrapper > div {
+  width: 100% !important;
+}
+

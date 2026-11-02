@@ -1,0 +1,371 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="1. Patient Google OAuth Sign-In" id="patient-signin">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="patient" value="Patient" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="client" value="React Client&lt;br&gt;(Certus-Client)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="google" value="Google OAuth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="PHP API&lt;br&gt;(google-auth.php)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="MySQL Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="760" y="40" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Lifelines -->
+        <mxCell id="patient-line" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="patient">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="55" y="120" as="sourcePoint" />
+            <mxPoint x="55" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="client-line" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="client">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="120" as="sourcePoint" />
+            <mxPoint x="220" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="google-line" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="google">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="120" as="sourcePoint" />
+            <mxPoint x="420" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="api-line" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="api">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="120" as="sourcePoint" />
+            <mxPoint x="620" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="db-line" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="db">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="140" as="sourcePoint" />
+            <mxPoint x="810" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Messages -->
+        <mxCell id="msg1" value="1: Click Sign In with Google" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="55" y="140" as="sourcePoint" />
+            <mxPoint x="220" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg2" value="2: Initiate OAuth Flow" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="160" as="sourcePoint" />
+            <mxPoint x="420" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg3" value="3: Show Google Login Screen" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="180" as="sourcePoint" />
+            <mxPoint x="55" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg4" value="4: Enter credentials &amp; approve" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="55" y="200" as="sourcePoint" />
+            <mxPoint x="420" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg5" value="5: Return credential token" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="220" as="sourcePoint" />
+            <mxPoint x="220" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg6" value="6: POST /api/google-auth.php" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="240" as="sourcePoint" />
+            <mxPoint x="620" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg7" value="7: Decode JWT token" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="260" as="sourcePoint" />
+            <mxPoint x="650" y="260" as="targetPoint" />
+            <mxPoint x="620" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg8" value="8: Check if user exists" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="290" as="sourcePoint" />
+            <mxPoint x="810" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Alt frame for user exists -->
+        <mxCell id="alt-frame" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="600" y="310" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="alt-label1" value="[User exists]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="610" y="320" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="msg9" value="9: Return user data" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="340" as="sourcePoint" />
+            <mxPoint x="620" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg10" value="10: UPDATE last_login" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="360" as="sourcePoint" />
+            <mxPoint x="810" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="alt-divider" value="" style="endArrow=none;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="380" as="sourcePoint" />
+            <mxPoint x="850" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="alt-label2" value="[New user]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="610" y="385" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="msg11" value="11: INSERT new patient" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="405" as="sourcePoint" />
+            <mxPoint x="810" y="405" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="msg12" value="12: Return JSON response" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="450" as="sourcePoint" />
+            <mxPoint x="220" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg13" value="13: Store user in AuthContext" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="470" as="sourcePoint" />
+            <mxPoint x="250" y="470" as="targetPoint" />
+            <mxPoint x="220" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Phone number collection alt -->
+        <mxCell id="phone-frame" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="510" width="830" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="phone-label" value="[Phone number missing]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="520" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="msg14" value="14: Show phone collection modal" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="540" as="sourcePoint" />
+            <mxPoint x="55" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg15" value="15: Enter phone number" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="55" y="560" as="sourcePoint" />
+            <mxPoint x="220" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg16" value="16: POST update-user-phone.php" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="580" as="sourcePoint" />
+            <mxPoint x="620" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg17" value="17: UPDATE phone" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="600" as="sourcePoint" />
+            <mxPoint x="810" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="msg18" value="18: Success response" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="620" as="sourcePoint" />
+            <mxPoint x="220" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="msg19" value="19: Redirect to Dashboard" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="670" as="sourcePoint" />
+            <mxPoint x="55" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="2. Admin Google OAuth Sign-In" id="admin-signin">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="admin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="admin-client" value="React Admin&lt;br&gt;(Certus-Admin)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="google2" value="Google OAuth" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="admin-api" value="PHP API&lt;br&gt;(admin-google-auth.php)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="db2" value="MySQL Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="780" y="40" width="100" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Add similar lifelines and messages for admin flow -->
+        <mxCell id="note1" value="Note: Similar structure to Patient OAuth,&lt;br&gt;but checks admins table and&lt;br&gt;admin_approval_requests table.&lt;br&gt;&lt;br&gt;New admins require approval&lt;br&gt;before gaining access." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;size=15;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="300" height="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="3. System Architecture" id="architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client Layer -->
+        <mxCell id="client-layer" value="Client Layer" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="patient-client" value="Patient Client&lt;br&gt;React + Vite&lt;br&gt;Port 5173" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="client-layer">
+          <mxGeometry x="20" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="admin-client2" value="Admin Client&lt;br&gt;React + Vite&lt;br&gt;Port 5174" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="client-layer">
+          <mxGeometry x="210" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Authentication -->
+        <mxCell id="auth-layer" value="Authentication" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="google-oauth" value="Google OAuth 2.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="auth-layer">
+          <mxGeometry x="20" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- API Layer -->
+        <mxCell id="api-layer" value="API Layer - PHP" style="swimlane;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="640" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="patient-apis" value="Patient APIs&lt;br&gt;google-auth.php&lt;br&gt;reports.php&lt;br&gt;tests.php&lt;br&gt;packages.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=center;" vertex="1" parent="api-layer">
+          <mxGeometry x="20" y="40" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="admin-apis" value="Admin APIs&lt;br&gt;admin-google-auth.php&lt;br&gt;patients.php&lt;br&gt;upload-report.php&lt;br&gt;dashboard.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=center;" vertex="1" parent="api-layer">
+          <mxGeometry x="180" y="40" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews-api" value="Google Reviews&lt;br&gt;google-reviews.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="api-layer">
+          <mxGeometry x="360" y="40" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="upload-api" value="Upload API&lt;br&gt;upload.php" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="api-layer">
+          <mxGeometry x="500" y="40" width="120" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- Business Logic -->
+        <mxCell id="logic-layer" value="Business Logic (Controllers)" style="swimlane;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="490" width="640" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="controllers" value="PatientController | AdminController | ReportsController | TestController | PackageController | DashboardController | GoogleReviewController" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=center;" vertex="1" parent="logic-layer">
+          <mxGeometry x="20" y="40" width="600" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Data Layer -->
+        <mxCell id="data-layer" value="Data Layer" style="swimlane;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="660" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="mysql" value="MySQL Database&lt;br&gt;certus_diagnostics&lt;br&gt;&lt;br&gt;Tables:&lt;br&gt;patients, admins, tests,&lt;br&gt;packages, reports,&lt;br&gt;google_reviews" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="data-layer">
+          <mxGeometry x="20" y="40" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="filesystem" value="File System&lt;br&gt;&lt;br&gt;/uploads/reports/&lt;br&gt;/uploads/images/" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="data-layer">
+          <mxGeometry x="210" y="40" width="160" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- External Services -->
+        <mxCell id="external-layer" value="External Services" style="swimlane;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="660" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="google-places" value="Google Places API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="external-layer">
+          <mxGeometry x="20" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gmail" value="Gmail/Email&lt;br&gt;Service" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="external-layer">
+          <mxGeometry x="20" y="110" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" value="HTTPS/REST" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="patient-client" target="patient-apis">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" value="HTTPS/REST" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="admin-client2" target="admin-apis">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" value="OAuth" style="endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="patient-client" target="google-oauth">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="api-layer" target="logic-layer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="500" as="sourcePoint" />
+            <mxPoint x="450" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" value="PDO" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="controllers" target="mysql">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="650" as="sourcePoint" />
+            <mxPoint x="450" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn6" value="File I/O" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="controllers" target="filesystem">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="650" as="sourcePoint" />
+            <mxPoint x="450" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn7" value="HTTP" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="reviews-api" target="google-places">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="600" as="sourcePoint" />
+            <mxPoint x="450" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn8" value="SMTP" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="upload-api" target="gmail">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="650" as="sourcePoint" />
+            <mxPoint x="450" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="720" y="40" width="400" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="legend-text" value="&lt;b&gt;Technology Stack:&lt;/b&gt;&lt;br&gt;&lt;br&gt;Frontend: React 19 + Vite + Tailwind CSS&lt;br&gt;Auth: Google OAuth 2.0&lt;br&gt;Backend: PHP 7.4+ with Apache&lt;br&gt;Database: MySQL 5.7+&lt;br&gt;ORM: PDO (PHP Data Objects)&lt;br&gt;File Storage: Local File System&lt;br&gt;External: Google Places API, Gmail&lt;br&gt;&lt;br&gt;&lt;b&gt;Deployment:&lt;/b&gt;&lt;br&gt;Hosting: Hostinger&lt;br&gt;Domain: certusdiagnostics.in&lt;br&gt;SSL: HTTPS enabled&lt;br&gt;&lt;br&gt;&lt;b&gt;Development:&lt;/b&gt;&lt;br&gt;Patient Client: Port 5173&lt;br&gt;Admin Client: Port 5174&lt;br&gt;Server: XAMPP (Local)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="30" width="380" height="260" as="geometry" />
+        </mxCell>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Certus Diagnostics - System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="880" width="1080" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

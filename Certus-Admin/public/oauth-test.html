@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google OAuth Test</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <h2>Google OAuth Configuration Test</h2>
+    <p>Testing client ID: 617778562937-ls3vtilgnkd1u7r4ttd63gtabn46n8aq.apps.googleusercontent.com</p>
+    <p>Current URL: <span id="currentUrl"></span></p>
+    
+    <div id="g_id_onload"
+         data-client_id="617778562937-ls3vtilgnkd1u7r4ttd63gtabn46n8aq.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+    
+    <div id="status" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+        Status: Waiting for Google OAuth to load...
+    </div>
+
+    <script>
+        document.getElementById('currentUrl').textContent = window.location.href;
+        
+        function handleCredentialResponse(response) {
+            document.getElementById('status').innerHTML = 
+                '<span style="color: green;">✅ SUCCESS: Google OAuth is working!</span><br>' +
+                'Credential received: ' + response.credential.substring(0, 50) + '...';
+        }
+        
+        // Test if Google OAuth loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const googleButton = document.querySelector('.g_id_signin');
+                if (googleButton && googleButton.innerHTML.trim() !== '') {
+                    document.getElementById('status').innerHTML = 
+                        '<span style="color: blue;">🔵 Google OAuth button loaded successfully!</span><br>' +
+                        'Configuration appears correct. Try clicking the button.';
+                } else {
+                    document.getElementById('status').innerHTML = 
+                        '<span style="color: red;">❌ Google OAuth button failed to load</span><br>' +
+                        'This usually means the domain is not authorized yet.';
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

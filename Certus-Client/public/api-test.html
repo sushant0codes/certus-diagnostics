@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test</h1>
+    <button onclick="testAPI()">Test API</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Loading...';
+
+            try {
+                // Test tests endpoint
+                const testsResponse = await fetch('http://localhost/certusServer/api/tests');
+                const testsData = await testsResponse.json();
+                
+                // Test packages endpoint
+                const packagesResponse = await fetch('http://localhost/certusServer/api/packages');
+                const packagesData = await packagesResponse.json();
+
+                resultDiv.innerHTML = `
+                    <h2>Tests (${testsData.count}):</h2>
+                    <pre>${JSON.stringify(testsData, null, 2)}</pre>
+                    
+                    <h2>Packages (${packagesData.data.length}):</h2>
+                    <pre>${JSON.stringify(packagesData, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
